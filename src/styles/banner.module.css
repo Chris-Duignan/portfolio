@@ -1,0 +1,12 @@
+.banner__container {
+    padding: 10px;
+    background-color: blue;
+}
+
+.banner__heading {
+    color: white;
+}
+
+.banner__icon {
+    padding: 5px;
+}
