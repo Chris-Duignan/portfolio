@@ -1,9 +1,11 @@
+import styles from '../app/page.module.css'
+
 const AboutMe = () => {
   return (
-    <div>
-        <h2>About Me</h2>
+    <div className={styles.container}>
+    <h2>About Me</h2>
       <p>
-        Hi, I'm Chris, Software/ Data Engineer, and board game enthusiast. I
+        Hi, I&apos;m Chris, Software/ Data Engineer, and board game enthusiast. I
         began my switch into tech in August 2023, completing the Northcoders
         Software Engineering bootcamp. After finishing the course, I moved into
         a role with Northcoders and worked with a client as a frontend software
