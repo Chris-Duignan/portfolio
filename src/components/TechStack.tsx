@@ -26,11 +26,13 @@ const TechStack = () => {
                 return (
                     <div key={title}>
                         <h3>{formatTitle(title)}</h3>
-                        {tech[title].map((item) => {
-                            return (
-                                <p>{item}</p>
-                            )
-                        })}
+                        <ul>
+                            {tech[title].map((item) => {
+                                return (
+                                    <li key={item}>{item}</li>
+                                )
+                            })}
+                        </ul>
                     </div>
                 )
             })}
