@@ -1,9 +1,9 @@
-import AboutMe from '@/components/AboutMe';
 import './globals.css'
-import Banner from "@/components/Banner";
-import TechStack from '@/components/TechStack';
-import Projects from '@/components/Projects';
-import ContactMe from '@/components/ContactMe';
+import AboutMe from '../components/AboutMe';
+import Banner from "../components/Banner";
+import TechStack from '../components/TechStack';
+import Projects from '../components/Projects';
+import ContactMe from '../components/ContactMe';
 
 export default function Home() {
   return (
