@@ -12,7 +12,6 @@ export default function Home() {
       <AboutMe></AboutMe>
       <TechStack></TechStack>
       <Projects></Projects>
-      <ContactMe></ContactMe>
     </main>
   )
 }
