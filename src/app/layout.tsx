@@ -1,3 +1,4 @@
+import Banner from '@/components/Banner'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'

@@ -1,0 +1,26 @@
+.container {
+    width: 70%;
+}
+
+.card {
+    background-color: blue;
+    border-radius: 20px 20px 0 0;
+    height: 100%;
+}
+
+.button {
+    width: 50%;
+    border: 0;
+    background-color: black;
+    color: white;
+    height: 2rem;
+}
+
+.left {
+    border-radius: 0 0 0 20px;
+}
+
+.right {
+    border-radius: 0 0 20px 0;
+}
+
