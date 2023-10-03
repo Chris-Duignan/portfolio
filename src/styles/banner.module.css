@@ -1,6 +1,7 @@
 .banner__container {
     padding: 10px;
     border-bottom: 1px solid #DECCCC;
+    height: 10vh;
 }
 
 .banner__icon {

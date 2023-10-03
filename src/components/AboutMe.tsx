@@ -2,7 +2,7 @@ import styles from '../app/page.module.css'
 
 const AboutMe = () => {
   return (
-    <div className={styles.container}>
+    <div className={styles.leftContainer}>
     <h2>About Me</h2>
       <p>
         Hi, I&apos;m Chris, Software/ Data Engineer, and board game enthusiast. I

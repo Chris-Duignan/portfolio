@@ -3,16 +3,15 @@
 }
 
 .card {
-    background-color: blue;
+    background-color: aliceblue;
     border-radius: 20px 20px 0 0;
     height: 100%;
 }
 
 .button {
+    background-color: aliceblue;
     width: 50%;
     border: 0;
-    background-color: black;
-    color: white;
     height: 2rem;
 }
 
@@ -22,5 +21,26 @@
 
 .right {
     border-radius: 0 0 20px 0;
+}
+
+.button:hover {
+    background-color: azure;
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.rightPoint {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+  
+.leftPoint {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
 }
 

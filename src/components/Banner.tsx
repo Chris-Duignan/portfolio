@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Banner = () => {
   return (
-    <div className={styles.banner__container}>
+    <header className={styles.banner__container}>
       <h1 className={styles.banner__heading}>Chris Duignan</h1>
       <a
         href="https://github.com/Chris-Duignan"
@@ -29,7 +29,7 @@ const Banner = () => {
           height={30}
         />
       </a>
-    </div>
+    </header>
   );
 };
 

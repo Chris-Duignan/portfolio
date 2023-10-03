@@ -17,13 +17,13 @@ const Carousel = () => {
           className={`${carouselStyles.button} ${carouselStyles.left}`}
           onClick={() => updateIndex(-1)}
         >
-          Left
+          <div className={`${carouselStyles.arrow} ${carouselStyles.leftPoint}`}></div>
         </button>
         <button
           className={`${carouselStyles.button} ${carouselStyles.right}`}
           onClick={() => updateIndex(1)}
         >
-          Right
+          <div className={`${carouselStyles.arrow} ${carouselStyles.rightPoint}`}></div>
         </button>
       </div>
     </div>

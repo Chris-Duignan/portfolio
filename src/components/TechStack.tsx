@@ -20,7 +20,7 @@ const TechStack = () => {
     }
 
     return (
-        <div className={styles.container}>
+        <div className={styles.leftContainer}>
             <h2>Tech Stack</h2>
             {Object.keys(tech).map((title) => {
                 return (

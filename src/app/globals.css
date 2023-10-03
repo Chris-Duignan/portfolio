@@ -13,27 +13,29 @@ h1 {
 }
 
 h2 {
-  font-size: 1.75rem;
-}
-
-h3 {
   font-size: 1.5rem;
 }
 
-p {
+h3 {
   font-size: 1.25rem;
 }
 
+p {
+  font-size: 1rem;
+}
+
 li {
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 
 body {
   text-align: center;
-  width: 100%;
+  width: 100vw;
+  max-height: 100vh;
+  overflow: hidden;
 }
 
-ul {
+ul li{
   list-style-type: none;
+  display: inline-block;
 }
-
