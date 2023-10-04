@@ -1,6 +1,5 @@
 import "./globals.css";
 import AboutMe from "../components/AboutMe";
-import Container from "@/components/Container";
 import NavBar from "@/components/NavBar";
 import TechStack from "@/components/TechStack";
 import Projects from "@/components/Projects";
