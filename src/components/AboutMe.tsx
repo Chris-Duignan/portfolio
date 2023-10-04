@@ -1,9 +1,6 @@
-import styles from '../app/page.module.css'
-
 const AboutMe = () => {
   return (
-    <div className={styles.leftContainer}>
-    <h2>About Me</h2>
+    <div id="bio">
       <p>
         Hi, I&apos;m Chris, Software/ Data Engineer, and board game enthusiast. I
         began my switch into tech in August 2023, completing the Northcoders

@@ -1,4 +1,3 @@
-import styles from '../app/page.module.css'
 import formatTitle from '../utils/formatTitle'
 
 interface Tech {
@@ -20,7 +19,7 @@ const TechStack = () => {
     }
 
     return (
-        <div className={styles.leftContainer}>
+        <div id='tech'>
             <h2>Tech Stack</h2>
             {Object.keys(tech).map((title) => {
                 return (

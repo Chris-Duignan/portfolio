@@ -8,7 +8,7 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ record }) => {
   return (
-    <div className={carouselStyles.card}>
+    <div>
       <h3>{record.fields.name}</h3>
       <Image
         src={record.fields.images[0].thumbnails.large.url}
@@ -23,11 +23,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ record }) => {
         blurDataURL="/1x1-b92e297f.png"
       />
       <p>{record.fields.description}</p>
-      <ul>
-        {record.fields.techStack.map((tech) => {
-          return <li  className={carouselStyles.card} key={tech}>{tech}</li>;
-        })}
-      </ul>
       <p>
         See it{" "}
         <a href={record.fields.hosted} target="_blank">
