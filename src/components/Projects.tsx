@@ -1,6 +1,6 @@
 import Carousel from "./Carousel";
 
-const Projects = async () => {
+const Projects = () => {
   return (
     <div id="projects">
       <Carousel />

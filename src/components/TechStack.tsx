@@ -1,4 +1,6 @@
 import formatTitle from '../utils/formatTitle'
+import Tag from './Tag'
+import SecondaryTitle from './typography/SecondaryTitle'
 
 interface Tech {
     languages: string[],
@@ -19,19 +21,17 @@ const TechStack = () => {
     }
 
     return (
-        <div id='tech'>
-            <h2>Tech Stack</h2>
+        <div id='tech' className='pb-10'>
+            <SecondaryTitle>Tech Stack</SecondaryTitle>
             {Object.keys(tech).map((title) => {
                 return (
                     <div key={title}>
-                        <h3>{formatTitle(title)}</h3>
-                        <ul>
+                        <p className='inline-block'>{formatTitle(title)}</p>
                             {tech[title].map((item) => {
                                 return (
-                                    <li key={item}>{item}</li>
+                                    <Tag key={item}>{item}</Tag>
                                 )
                             })}
-                        </ul>
                     </div>
                 )
             })}

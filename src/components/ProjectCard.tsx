@@ -1,6 +1,5 @@
 import type { Record } from "@/interfaces/types";
 import Image from "next/image";
-import carouselStyles from '../styles/carousel.module.css'
 
 interface ProjectCardProps {
   record: Record;

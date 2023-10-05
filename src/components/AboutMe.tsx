@@ -1,6 +1,6 @@
 const AboutMe = () => {
   return (
-    <div id="bio">
+    <div id="bio" className="pb-10">
       <p>
         Hi, I&apos;m Chris, Software/ Data Engineer, and board game enthusiast. I
         began my switch into tech in August 2023, completing the Northcoders
