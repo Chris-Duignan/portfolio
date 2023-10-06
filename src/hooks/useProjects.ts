@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import type { Record } from "@/interfaces/types";
 
@@ -21,10 +20,10 @@ const useProjects = () => {
 
   const updateIndex = (update: number) => {
     setIndex((prevIndex) => {
-      const newIndex = (prevIndex + update) % projects.length
+      const newIndex = (prevIndex + update) % projects.length;
       return newIndex < 0 ? newIndex + projects.length : newIndex;
-    })
-  }
+    });
+  };
 
   useEffect(() => {
     setIsLoading(true);
