@@ -14,32 +14,32 @@ async function getProjects(): Promise<Record[]> {
 
 const useProjects = () => {
   const [projects, setProjects] = useState<Record[]>([]);
-  const [index, setIndex] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
+  const [allCollected, setAllCollected] = useState(false)
   const [err, setErr] = useState(null);
+  const [page, setPage] = useState(1)
+  const [currentProjects, setCurrentProjects] = useState<Record[]>([])
 
-  const updateIndex = (update: number) => {
-    setIndex((prevIndex) => {
-      const newIndex = (prevIndex + update) % projects.length;
-      return newIndex < 0 ? newIndex + projects.length : newIndex;
-    });
-  };
+  const setNextPage = () => {
+    setPage((prev) => {
+      if (!allCollected) return prev + 1
+      return prev;
+    } )
+  }
 
   useEffect(() => {
-    setIsLoading(true);
     setErr(null);
     getProjects()
       .then((projects) => {
         setProjects(projects);
-        setIsLoading(false);
+        setCurrentProjects(projects.slice(0, page * 2))
+        if (page * 2 >= projects.length) setAllCollected(true)
       })
       .catch((err) => {
         setErr(err.response);
-        setIsLoading(false);
       });
-  }, []);
+  }, [allCollected, page]);
 
-  return { projects, index, updateIndex, isLoading, err };
+  return { currentProjects, allCollected, setNextPage, err };
 };
 
 export default useProjects;

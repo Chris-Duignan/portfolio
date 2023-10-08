@@ -16,13 +16,14 @@ const useObserver = (sectionRefs: SectionRefs) => {
     const observerOptions = {
       root: scrollRoot,
       rootMargin: "-178px 0px -50% 0px",
+      threshold: 0
     };
 
     const handleIntersection = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting && !hasSetActiveLink) {
           setActiveLink(entry.target.id);
-          setHasSetActiveLink(true); // Set the state to true once the active link is set
+          setHasSetActiveLink(true);
         }
       });
     };

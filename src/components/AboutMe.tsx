@@ -11,15 +11,17 @@ const AboutMe = React.forwardRef<HTMLDivElement>((props, ref) => {
         engineer. After finishing work with the client, I moved into learning
         the fundamentals of data engineering, and cloud infrastructure (AWS,
         Microsoft Azure).
-        <br />
+        <br /><br />
         Lorem ipsum
-        <br />
+        <br /><br />
         Lorem ipsum
-        <br />
-        lorem ipsum
+        <br /><br /><br /><br />
+        Lorem ipsum
       </p>
     </div>
   );
 });
 
+
+AboutMe.displayName = 'AboutMe'
 export default AboutMe;

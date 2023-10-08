@@ -3,11 +3,13 @@ import Image from "next/image";
 
 interface ProjectCardProps {
   record: Record;
+
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ record }) => {
+const ProjectCard = (({record}: ProjectCardProps) => {  
+
   return (
-    <div>
+    <div className="p-10 card">
       <h3>{record.fields.name}</h3>
       <Image
         src={record.fields.images[0].thumbnails.large.url}
@@ -15,7 +17,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ record }) => {
         height={record.fields.images[0].thumbnails.large.height}
         width={record.fields.images[0].thumbnails.large.width}
         style={{
-          width: '100%',
+          width: '25%',
           height: 'auto',
         }}
         placeholder="blur"
@@ -34,6 +36,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ record }) => {
       </p>
     </div>
   );
-};
+});
 
 export default ProjectCard;

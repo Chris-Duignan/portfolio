@@ -19,6 +19,7 @@ const TechStack = React.forwardRef<HTMLDivElement>((props, ref) => {
     back_end: ["Express.js", "PSQL"],
     data_engineering: ["scraPy", "spaCy"],
     cloud: ["AWS", "Azure", "Terraform"],
+    CICD: ["Github Actions", "Husky", "ESLint", "Serverless"]
   };
 
   return (
@@ -26,11 +27,13 @@ const TechStack = React.forwardRef<HTMLDivElement>((props, ref) => {
       <SecondaryTitle>Tech Stack</SecondaryTitle>
       {Object.keys(tech).map((title) => {
         return (
-          <div key={title}>
-            <p className="inline-block">{formatTitle(title)}</p>
+          <div key={title} className="flex items-center">
+            <p className="inline-block w-3/12">{formatTitle(title)}</p>
+            <div className="flex items-center flex-wrap w-9/12">
             {tech[title].map((item) => {
               return <Tag key={item}>{item}</Tag>;
             })}
+            </div>
           </div>
         );
       })}
@@ -38,4 +41,5 @@ const TechStack = React.forwardRef<HTMLDivElement>((props, ref) => {
   );
 });
 
+TechStack.displayName = 'TechStack'
 export default TechStack;
