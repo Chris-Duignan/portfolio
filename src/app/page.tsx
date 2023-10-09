@@ -8,7 +8,7 @@ import Projects from "@/components/Projects";
 import PrimaryTitle from "@/components/typography/PrimaryTitle";
 import SecondaryTitle from "@/components/typography/SecondaryTitle";
 import useObserver from "@/hooks/useObserver";
-import { useRef } from "react";
+import { Suspense, useRef } from "react";
 
 export default function Home() {
   const sectionRefs = {
