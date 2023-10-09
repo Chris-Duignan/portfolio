@@ -19,7 +19,7 @@ const TechStack = React.forwardRef<HTMLDivElement>((props, ref) => {
     back_end: ["Express.js", "PSQL"],
     data_engineering: ["scraPy", "spaCy"],
     cloud: ["AWS", "Azure", "Terraform"],
-    CICD: ["Github Actions", "Husky", "ESLint", "Serverless"]
+    CICD: ["Github Actions", "Husky", "ESLint", "Serverless", "Docker"]
   };
 
   return (
