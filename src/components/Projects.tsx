@@ -1,6 +1,7 @@
 import React, { Suspense, useEffect, useState } from "react";
 import useProjects from "@/hooks/useProjects";
 import ProjectCard from "./ProjectCard";
+import SecondaryTitle from "./typography/SecondaryTitle";
 
 const Projects = React.forwardRef<HTMLDivElement>((props, ref) => {
   const { projects, err } = useProjects();
@@ -20,17 +21,18 @@ const Projects = React.forwardRef<HTMLDivElement>((props, ref) => {
   };
 
   return (
-    <div id="projects" ref={ref}>
+    <div id="projects" className="border-b-2" ref={ref}>
+      <SecondaryTitle style={'text-center pt-10'}>Projects</SecondaryTitle>
       {err ? <div>oh no</div> : null}
       <Suspense>
         {currentProjects.map((data, index) => {
           return (
-            <ProjectCard
-              record={data}
-              key={data.id}
-              isLast={index === currentProjects.length - 1}
-              loadMoreProjects={loadMoreProjects}
-            />
+              <ProjectCard
+                record={data}
+                isLast={index === currentProjects.length - 1}
+                loadMoreProjects={loadMoreProjects}
+                key={data.id}
+              />
           );
         })}
       </Suspense>

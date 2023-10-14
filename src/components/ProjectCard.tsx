@@ -17,6 +17,8 @@ const ProjectCard = ({
   const cardRef = React.createRef<HTMLDivElement>();
   const loadMoreTriggered = useRef(false);
 
+  const style = `card py-10 w-full`
+
   useEffect(() => {
     if (!cardRef.current) return;
     const observer = new IntersectionObserver(
@@ -34,22 +36,23 @@ const ProjectCard = ({
   }, [isLast, cardRef, loadMoreProjects]);
 
   return (
-    <div className="card bg-orange-400 mb-10 p-4 rounded-lg" ref={cardRef}>
-      <h3>{record.fields.name}</h3>
-      {record.fields.images ? (
-        <Image
-          src={record.fields.images[0].thumbnails.large.url}
-          alt=""
-          height={record.fields.images[0].thumbnails.large.height}
-          width={record.fields.images[0].thumbnails.large.width}
-          style={{
-            width: "35%",
-            height: "auto",
-          }}
-          placeholder="blur"
-          blurDataURL="/1x1-b92e297f.png"
-        />
-      ) : null}
+    <div className="flex flex-col items-center">
+      <div className={style} ref={cardRef}>
+        <h3>{record.fields.name}</h3>
+        {record.fields.images ? (
+          <Image
+            src={record.fields.images[0].thumbnails.large.url}
+            alt=""
+            height={record.fields.images[0].thumbnails.large.height}
+            width={record.fields.images[0].thumbnails.large.width}
+            style={{
+              width: "35%",
+              height: "auto",
+            }}
+            placeholder="blur"
+            blurDataURL="/1x1-b92e297f.png"
+          />
+        ) : null}
         <p>{record.fields.description}</p>
         {record.fields.hosted ? (
           <p>
@@ -68,7 +71,9 @@ const ProjectCard = ({
             </a>
           </p>
         ) : null}
-    </div>
+      </div>
+      { !isLast ? <hr className="w-full" /> : null}
+    </ div>
   );
 };
 
