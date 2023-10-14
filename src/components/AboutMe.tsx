@@ -1,9 +1,11 @@
 import React from "react";
+import SecondaryTitle from "./typography/SecondaryTitle";
 
 const AboutMe = React.forwardRef<HTMLDivElement>((props, ref) => {
   return (
-    <div id="bio" ref={ref} className="pb-10">
-      <p>
+    <div id="bio" ref={ref} className="pb-10 border-b-2">
+      <SecondaryTitle style={'text-center'}>About Me</SecondaryTitle>
+      <p className="py-10">
         Hi, I&apos;m Chris, Software/ Data Engineer, and board game enthusiast.
         I began my switch into tech in August 2023, completing the Northcoders
         Software Engineering bootcamp. After finishing the course, I moved into
