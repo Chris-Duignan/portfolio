@@ -8,7 +8,7 @@ const NavBar = ({ section }: Props) => {
     const newStyle = "pb-6 font-bold underline"
     return (
         <nav>
-            <ul>
+            <ul className="flex justify-between px-5 md:flex-col">
                 <li className={section==="bio" ? newStyle: style}><a href="#bio">About Me</a></li>
                 <li className={section==="tech" ? newStyle: style}><a href="#tech">Tech Stack</a></li>
                 <li className={section==="projects" ? newStyle: style}><a href="#projects">Projects</a></li>

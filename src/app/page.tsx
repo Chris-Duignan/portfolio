@@ -22,8 +22,8 @@ export default function Home() {
   const activeLink = useObserver(sectionRefs);
 
   return (
-    <div className="grid grid-cols-3 gap-4 h-screen">
-      <aside className="col-span-1 grid grid-rows-3 border-r-2 pl-48 pt-44 pb-44 pr-10">
+    <div className="md:grid md:grid-cols-3 md:gap-4 h-screen">
+      <aside className="border-b-2 md:col-span-1 md:grid md:grid-rows-3 md:border-r-2 md:border-b-0 md:pl-48 md:pt-44 md:pb-44 md:pr-10">
         <div>
           <PrimaryTitle>Chris Duignan</PrimaryTitle>
           <SecondaryTitle style={"text-left"}>
@@ -58,7 +58,7 @@ export default function Home() {
       </aside>
       <main
         id="scrollArea"
-        className="col-span-2 text-justify overflow-y-auto py-44 pr-48 pl-16 scroll-smooth scroll-pt-44"
+        className="md:col-span-2 text-justify overflow-y-auto md:py-44 md:pr-48 md:pl-16 scroll-smooth scroll-pt-44"
       >
         <AboutMe ref={sectionRefs.bio} />
         <TechStack ref={sectionRefs.tech} />

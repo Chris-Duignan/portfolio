@@ -59,26 +59,29 @@ const ProjectCard = ({
           <p>{record.fields.description}</p>
           <div className="flex justify-between items-end grow">
             {record.fields.hosted ? (
-              <p>
+              <p className="text-left">
                 See it at:{" "}
-                <a className='underline' href={record.fields.hosted} target="_blank">
+                <a
+                  className="underline"
+                  href={record.fields.hosted}
+                  target="_blank"
+                >
                   {record.fields.hosted}
                 </a>{" "}
               </p>
             ) : null}
             {record.fields.github ? (
-                <a href={record.fields.github} target="_blank">
-                  <Image
-                    src={githubIcon}
-                    alt=""
-                    style={{
-                      margin: "5px",
-                      width: "30px",
-                      height: "auto",
-                    }}
-                  ></Image>
-                </a>
-
+              <a href={record.fields.github} target="_blank">
+                <Image
+                  src={githubIcon}
+                  alt=""
+                  style={{
+                    margin: "5px",
+                    width: "30px",
+                    height: "auto",
+                  }}
+                ></Image>
+              </a>
             ) : null}
           </div>
         </div>
