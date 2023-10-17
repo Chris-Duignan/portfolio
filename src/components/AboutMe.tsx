@@ -14,7 +14,7 @@ const AboutMe = React.forwardRef<HTMLDivElement>((props, ref) => {
         the fundamentals of data engineering, and cloud infrastructure (AWS,
         Microsoft Azure).
         <br /><br />
-        Outside of work, you'll usually find me playing board games, bouldering, or running table top role-playing games.
+        Outside of work, you&apos;ll usually find me playing board games, bouldering, or running table top role-playing games.
       </p>
     </div>
   );
