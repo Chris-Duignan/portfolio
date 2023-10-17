@@ -2,6 +2,8 @@ import type { Record } from "@/interfaces/types";
 import Image from "next/image";
 import React from "react";
 import { useEffect, useRef } from "react";
+import githubIcon from "../../public/github-mark-white.svg";
+import TertiaryTitle from "./typography/TertiaryTitle";
 
 interface ProjectCardProps {
   record: Record;
@@ -17,7 +19,7 @@ const ProjectCard = ({
   const cardRef = React.createRef<HTMLDivElement>();
   const loadMoreTriggered = useRef(false);
 
-  const style = `card py-10 w-full`
+  const style = `card py-10 w-full flex`;
 
   useEffect(() => {
     if (!cardRef.current) return;
@@ -38,7 +40,6 @@ const ProjectCard = ({
   return (
     <div className="flex flex-col items-center">
       <div className={style} ref={cardRef}>
-        <h3>{record.fields.name}</h3>
         {record.fields.images ? (
           <Image
             src={record.fields.images[0].thumbnails.large.url}
@@ -53,27 +54,37 @@ const ProjectCard = ({
             blurDataURL="/1x1-b92e297f.png"
           />
         ) : null}
-        <p>{record.fields.description}</p>
-        {record.fields.hosted ? (
-          <p>
-            See it{" "}
-            <a href={record.fields.hosted} target="_blank">
-              here
-            </a>{" "}
-          </p>
-        ) : null}
+        <div className="px-5 flex flex-col">
+          <TertiaryTitle style="pb-5">{record.fields.name}</TertiaryTitle>
+          <p>{record.fields.description}</p>
+          <div className="flex justify-between items-end grow">
+            {record.fields.hosted ? (
+              <p>
+                See it at:{" "}
+                <a className='underline' href={record.fields.hosted} target="_blank">
+                  {record.fields.hosted}
+                </a>{" "}
+              </p>
+            ) : null}
+            {record.fields.github ? (
+                <a href={record.fields.github} target="_blank">
+                  <Image
+                    src={githubIcon}
+                    alt=""
+                    style={{
+                      margin: "5px",
+                      width: "30px",
+                      height: "auto",
+                    }}
+                  ></Image>
+                </a>
 
-        {record.fields.github ? (
-          <p>
-            and on{" "}
-            <a href={record.fields.github} target="_blank">
-              GitHub
-            </a>
-          </p>
-        ) : null}
+            ) : null}
+          </div>
+        </div>
       </div>
-      { !isLast ? <hr className="w-full" /> : null}
-    </ div>
+      {!isLast ? <hr className="w-full" /> : null}
+    </div>
   );
 };
 

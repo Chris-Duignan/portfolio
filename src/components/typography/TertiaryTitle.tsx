@@ -1,10 +1,11 @@
 interface Props {
-    children: React.ReactNode
+    children: React.ReactNode;
+    style?: string;
 }
 
-const TertiaryTitle = ({ children }: Props) => {
+const TertiaryTitle = ({ children, style }: Props) => {
     return (
-        <h3 className="text-l font-bold">
+        <h3 className={`text-l font-bold ${style}`}>
             {children}
         </h3>
     )
