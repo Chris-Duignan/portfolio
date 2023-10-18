@@ -3,7 +3,7 @@ import axios from "axios";
 import type { Record } from "@/interfaces/types";
 
 async function getProjects(): Promise<Record[]> {
-  const client = axios.create({ baseURL: "http://localhost:3000/" });
+  const client = axios.create({ baseURL: "https://portfolio-zvrn45iqxa-ew.a.run.app" });
 
   const {
     data: { records },
