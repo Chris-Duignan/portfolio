@@ -19,8 +19,18 @@ terraform {
 }
 
 resource "google_project_service" "project" {
-  for_each = toset(["artifactregistry.googleapis.com", "run.googleapis.com"])
-  service  = each.key
+  for_each =toset(
+    [
+      "artifactregistry.googleapis.com",
+      "run.googleapis.com",
+      "cloudresourcemanager.googleapis.com",
+      "iam.googleapis.com",
+      "iamcredentials.googleapis.com",
+      "sts.googleapis.com"
+    ]
+  )
+
+  service = each.key
 }
 
 resource "google_artifact_registry_repository" "portfolio_repo" {
@@ -32,7 +42,10 @@ resource "google_artifact_registry_repository" "portfolio_repo" {
 resource "google_cloud_run_v2_service" "portfolio" {
   name     = "portfolio"
   location = var.region
+
   template {
+    service_account = google_service_account.cloud_run.email
+
     containers {
       image = "europe-west1-docker.pkg.dev/portfolio-402319/portfolio-repo/portfolio:latest"
       resources {
@@ -48,4 +61,6 @@ resource "google_cloud_run_v2_service" "portfolio" {
   }
 }
 
-
+resource "google_service_account" "cloud_run" {
+  account_id = "portfolio-cloud-run"
+}
