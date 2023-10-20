@@ -19,7 +19,7 @@ terraform {
 }
 
 resource "google_project_service" "project" {
-  for_each =toset(
+  for_each = toset(
     [
       "artifactregistry.googleapis.com",
       "run.googleapis.com",
