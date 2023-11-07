@@ -47,8 +47,8 @@ jobs:
       - name: Configure Docker
         run: gcloud auth configure-docker europe-west1-docker.pkg.dev 
 
-      # - name: Docker build
-      #   run: docker buildx build --platform linux/amd64 -t portfolio .
+      - name: Docker build
+        run: docker buildx build --platform linux/amd64 -t portfolio .
 
       # - name: Docker tag
       # - run: docker tag port
