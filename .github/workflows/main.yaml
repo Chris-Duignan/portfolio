@@ -60,7 +60,7 @@ jobs:
         run: docker buildx build --platform linux/amd64 -t portfolio .
 
       - name: Docker tag
-      - run: docker tag portfolio europe-west1-docker.pkg.dev/portfolio-402319/portfolio-repo/portfolio:${{ github.sha }}
+        run: docker tag portfolio europe-west1-docker.pkg.dev/portfolio-402319/portfolio-repo/portfolio:${{ github.sha }}
 
       - name: Docker push
         run: docker push europe-west1-docker.pkg.dev/portfolio-402319/portfolio-repo/portfolio:${{ github.sha }}
