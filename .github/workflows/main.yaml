@@ -41,11 +41,14 @@ jobs:
           workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
           service_account: ${{ secrets.SERVICE_ACCOUNT }}
 
-      # - name: Configure Docker
-      # - run: gcloud auth configure-docker europe-west1-docker.pkg.dev 
+      - name: Setup GCP SDK
+        uses: 'google-github-actions/setup-gcloud@v1'
+
+      - name: Configure Docker
+        run: gcloud auth configure-docker europe-west1-docker.pkg.dev 
 
       # - name: Docker build
-      # - run: docker buildx build --platform linux/amd64 -t portfolio .
+      #   run: docker buildx build --platform linux/amd64 -t portfolio .
 
       # - name: Docker tag
       # - run: docker tag port
