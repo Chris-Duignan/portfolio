@@ -29,6 +29,7 @@ jobs:
     env:
       AIRTABLE_BASE: ${{ secrets.AIRTABLE_BASE }}
       AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
+      TEST_SECRET: ${{ secrets.TEST_SECRET }}
 
     permissions:
       contents: 'read'
@@ -46,6 +47,9 @@ jobs:
 
       - name: Setup GCP SDK
         uses: 'google-github-actions/setup-gcloud@v1'
+
+      - name: Test Secret
+        run: echo $TEST_SECRET
 
       - name: Configure Docker
         run: gcloud auth configure-docker europe-west1-docker.pkg.dev 
