@@ -7,3 +7,7 @@ variable "region" {
   type    = string
   default = "europe-west1"
 }
+
+variable "tag" {
+  type = string
+}

@@ -47,7 +47,7 @@ resource "google_cloud_run_v2_service" "portfolio" {
     service_account = google_service_account.cloud_run.email
 
     containers {
-      image = "europe-west1-docker.pkg.dev/portfolio-402319/portfolio-repo/portfolio:latest"
+      image = "europe-west1-docker.pkg.dev/portfolio-402319/portfolio-repo/portfolio:${var.tag}"
       resources {
         limits = {
           memory = "512Mi"
