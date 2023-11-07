@@ -27,7 +27,7 @@ export default function Home() {
         <div>
           <PrimaryTitle>Chris Duignan</PrimaryTitle>
           <SecondaryTitle style={"text-left"}>
-            Full Stack Software Engineer
+            Full Stack Software Engineer @ Northcoders
           </SecondaryTitle>
         </div>
         <NavBar section={activeLink} />
