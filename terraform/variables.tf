@@ -9,5 +9,5 @@ variable "region" {
 }
 
 variable "tag" {
-  type    = string
+  type = string
 }
