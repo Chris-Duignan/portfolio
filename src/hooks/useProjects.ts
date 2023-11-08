@@ -6,7 +6,7 @@ async function getProjects(): Promise<Record[]> {
 
   let url: string;
 
-  if (process.env.NODE_ENV) {
+  if (process.env.NODE_ENV === 'development') {
     url = 'http://localhost:3000/'
   } else {
     url = "https://portfolio-zvrn45iqxa-ew.a.run.app/" 
