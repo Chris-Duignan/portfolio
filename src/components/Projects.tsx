@@ -23,7 +23,7 @@ const Projects = React.forwardRef<HTMLDivElement>((props, ref) => {
   return (
     <div id="projects" className="border-b-2" ref={ref}>
       <SecondaryTitle style={'text-center pt-10'}>Projects</SecondaryTitle>
-      {err ? <div>oh no</div> : null}
+      {err ? <div>Projects not found. Try again later</div> : null}
       <Suspense>
         {currentProjects.map((data, index) => {
           return (
