@@ -4,19 +4,13 @@ import type { Record } from "@/interfaces/types";
 
 async function getProjects(): Promise<Record[]> {
 
-  let url: string;
-
-  if (process.env.NODE_ENV === 'development') {
-    url = 'http://localhost:3000/'
-  } else {
-    url = "https://portfolio-zvrn45iqxa-ew.a.run.app/" 
-  }
-
-  const client = axios.create({ baseURL: url });
+  const client = axios.create({ baseURL: process.env.PROJECTS_URL });
 
   const {
     data: {records},
   } = await client.get("api/project");
+
+  if (!records) throw new Error('Projects not retrieved')
 
   return records;
 }
@@ -33,7 +27,7 @@ const useProjects = () => {
         setProjects(projects);
       })
       .catch((err) => {
-        setErr(err.response);
+        setErr(err.message);
       });
   }, []);
 
