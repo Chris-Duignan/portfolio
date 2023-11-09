@@ -29,6 +29,7 @@ jobs:
     env:
       AIRTABLE_BASE: ${{ secrets.AIRTABLE_BASE }}
       AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
+      NODE_ENV: production
 
     permissions:
       contents: 'read'
