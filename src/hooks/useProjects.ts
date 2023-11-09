@@ -1,18 +1,20 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import type { Record } from "@/interfaces/types";
 
 async function getProjects(): Promise<Record[]> {
+  if (!process.env.NEXT_PUBLIC_PROJECTS_URL) throw new Error('Failed to fetch projects')
 
-  const client = axios.create({ baseURL: process.env.PROJECTS_URL });
+  const res = await fetch(`${process.env.NEXT_PUBLIC_PROJECTS_URL}/api/project`, {next: {revalidate: 3600}})
+ 
+  if (!res.ok) {
+    throw new Error('Failed to fetch data')
+  }
+ 
+  const data = await res.json()
 
-  const {
-    data: {records},
-  } = await client.get("api/project");
+  if (!Array.isArray(data.records)) throw new Error('Failed to fetch projects')
 
-  if (!records) throw new Error('Projects not retrieved')
-
-  return records;
+  return data.records
 }
 
 const useProjects = () => {
