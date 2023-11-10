@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 
+export const dynamic = 'force-dynamic'
 export async function GET(request: Request) {
 
   try {
@@ -11,7 +12,7 @@ export async function GET(request: Request) {
       }
     );
     
-    console.info(res)
+    console.info('Response received', res)
     
     const projects = await res.json();
 
