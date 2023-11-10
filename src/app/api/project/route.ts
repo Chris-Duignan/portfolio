@@ -1,15 +1,17 @@
+export const dynamic = 'force-dynamic';
+
 import { NextResponse } from "next/server";
-import { headers } from "next/headers"
 
 
 export async function GET(request: Request) {
-  // const headersList = headers()
+
+  const {body} = request;
 
   try {
     const res = await fetch(
       `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE}/projects`,
       {
-        // cache: "no-cache",
+        cache: "no-store",
         headers: { Authorization: `Bearer ${process.env.AIRTABLE_TOKEN}` },
       }
     );
