@@ -40,7 +40,7 @@ const ProjectCard = ({
   return (
     <div className="flex flex-col items-center">
       <div className={style} ref={cardRef}>
-        {record.fields.images ? (
+        {/* {record.fields.images ? (
           <Image
             src={record.fields.images[0].thumbnails.large.url}
             alt=""
@@ -53,7 +53,7 @@ const ProjectCard = ({
             placeholder="blur"
             blurDataURL="/1x1-b92e297f.png"
           />
-        ) : null}
+        ) : null} */}
         <div className="px-5 flex flex-col">
           <TertiaryTitle style="pb-5">{record.fields.name}</TertiaryTitle>
           <p>{record.fields.description}</p>
