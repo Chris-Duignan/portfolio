@@ -3,7 +3,7 @@ import { headers } from "next/headers"
 
 
 export async function GET(request: Request) {
-  const headersList = headers()
+  // const headersList = headers()
 
   try {
     const res = await fetch(
