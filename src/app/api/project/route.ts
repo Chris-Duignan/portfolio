@@ -1,19 +1,27 @@
 import { NextResponse } from "next/server";
-import axios from "axios";
 
 export async function GET(request: Request) {
 
-  const res = await fetch(
-    `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE}/projects`,
-    {
-      next: {revalidate: 3600},
-      headers: { Authorization: `Bearer ${process.env.AIRTABLE_TOKEN}` },
-    }
-  );
+  try {
+    const res = await fetch(
+      `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE}/projects`,
+      {
+        cache: "no-cache",
+        headers: { Authorization: `Bearer ${process.env.AIRTABLE_TOKEN}` },
+      }
+    );
+    
+    console.info(res)
+    
+    const projects = await res.json();
 
-  const projects = await res.json();
+    return NextResponse.json(projects, {
+      status: res.status,
+    });
 
-  return NextResponse.json(projects, {
-    status: 200,
-  });
+
+  } catch (err) {
+    console.error(err)
+    return NextResponse.json(err, {status: 500})
+  }
 }

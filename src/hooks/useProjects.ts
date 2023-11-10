@@ -4,7 +4,7 @@ import type { Record } from "@/interfaces/types";
 async function getProjects(): Promise<Record[]> {
   if (!process.env.NEXT_PUBLIC_PROJECTS_URL) throw new Error('Failed to fetch projects')
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_PROJECTS_URL}/api/project`, {next: {revalidate: 3600}})
+  const res = await fetch(`${process.env.NEXT_PUBLIC_PROJECTS_URL}/api/project`, {cache: 'no-cache'})
  
   if (!res.ok) {
     throw new Error('Failed to fetch data')
