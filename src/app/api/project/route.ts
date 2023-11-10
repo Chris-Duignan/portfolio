@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
+import { headers } from "next/headers"
 
-export const dynamic = 'force-dynamic'
+
 export async function GET(request: Request) {
+  const headersList = headers()
 
   try {
     const res = await fetch(
