@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
 
-  const {body} = request;
+  // const {body} = request;
 
   try {
     const res = await fetch(
