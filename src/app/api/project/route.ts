@@ -7,7 +7,7 @@ export async function GET(request: Request) {
     const res = await fetch(
       `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE}/projects`,
       {
-        cache: "no-cache",
+        // cache: "no-cache",
         headers: { Authorization: `Bearer ${process.env.AIRTABLE_TOKEN}` },
       }
     );
