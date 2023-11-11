@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import Airtable from "airtable";
 
-export const revalidate = 0
 export async function GET(request: Request) {
 
   try {
@@ -14,7 +13,11 @@ export async function GET(request: Request) {
         return record.fields
     })
 
-    return NextResponse.json(minifiedRecords, { status: 200 });
+    const cacheHeaders = {
+        'Cache-Control': 'no-store, max-age=0',
+      };
+
+    return NextResponse.json(minifiedRecords, { status: 200, headers: cacheHeaders });
   } catch (err: any) {
     console.error(err)
     return NextResponse.json({ message: err.message }, { status: err.status });
