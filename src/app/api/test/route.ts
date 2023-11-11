@@ -3,6 +3,7 @@ import Airtable from "airtable";
 
 export async function GET(request: Request) {
 
+    const revalidate = 0;
   try {
         if (!process.env.AIRTABLE_BASE) throw new Error('Base missing')
         const base = new Airtable({apiKey: process.env.AIRTABLE_TOKEN}).base(process.env.AIRTABLE_BASE)
