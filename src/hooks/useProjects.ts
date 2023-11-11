@@ -12,9 +12,9 @@ async function getProjects(): Promise<Record[]> {
  
   const data = await res.json()
 
-  if (!Array.isArray(data)) throw new Error('Failed to fetch projects')
+  if (!Array.isArray(data.records)) throw new Error('Failed to fetch projects')
 
-  return data
+  return data.records
 }
 
 const useProjects = () => {
