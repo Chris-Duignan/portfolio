@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import Airtable from "airtable";
 
 export async function GET(request: Request) {
-//   const { body } = request;
+  const { body } = request;
 
   try {
         if (!process.env.AIRTABLE_BASE) throw new Error('Base missing')
