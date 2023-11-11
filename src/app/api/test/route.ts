@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import Airtable from "airtable";
 
+export const revalidate = 0
 export async function GET(request: Request) {
 
   try {
@@ -12,14 +13,6 @@ export async function GET(request: Request) {
     const minifiedRecords = records.map((record) => {
         return record.fields
     })
-    // const records = await fetch(
-    //   `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE}/projects`,
-    //   {
-    //     headers: { Authorization: `Bearer ${process.env.AIRTABLE_TOKEN}` },
-    //   }
-    // );
-
-    // const data = await records.json();
 
     return NextResponse.json(minifiedRecords, { status: 200 });
   } catch (err: any) {
