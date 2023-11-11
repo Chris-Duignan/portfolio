@@ -7,6 +7,9 @@ const nextConfig = {
                 hostname: 'v5.airtableusercontent.com'
             }
         ]
+    },
+    experimental: {
+        serverMinification: false
     }
 }
 
