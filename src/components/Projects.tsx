@@ -11,6 +11,14 @@ const Projects = React.forwardRef<HTMLDivElement>((props, ref) => {
   );
 
   useEffect(() => {
+    const getTest = async () => {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_PROJECTS_URL}/api/test`)
+
+      const body = await res.json()
+
+      console.log(body)
+    }
+    getTest()
     setCurrentProjects(projects.slice(0, page * 2));
   }, [projects, page]);
 
