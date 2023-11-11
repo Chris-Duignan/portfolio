@@ -23,6 +23,7 @@ export async function GET(request: Request) {
 
     return NextResponse.json(minifiedRecords, { status: 200 });
   } catch (err: any) {
+    console.error(err)
     return NextResponse.json({ message: err.message }, { status: err.status });
   }
 }
