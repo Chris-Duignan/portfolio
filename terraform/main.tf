@@ -55,11 +55,29 @@ resource "google_cloud_run_v2_service" "portfolio" {
           cpu    = "1"
         }
       }
+      env {
+        name = "AIRTABLE_TOKEN"
+        value_source {
+          secret_key_ref {
+            secret = google_secret_manager_secret.airtable_token.name
+          }
+        }
+      }
+      env {
+        name = "AIRTABLE_BASE"
+        value_source {
+          secret_key_ref {
+            secret = google_secret_manager_secret.airtable_base.name
+          }
+        }
+      }
     }
     scaling {
       max_instance_count = 2
     }
+
   }
+
 }
 
 resource "google_service_account" "cloud_run" {
