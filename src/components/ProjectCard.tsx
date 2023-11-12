@@ -1,4 +1,4 @@
-import type { Fields, Record } from "@/interfaces/types";
+import type { Fields } from "@/interfaces/types";
 import Image from "next/image";
 import React from "react";
 import { useEffect, useRef } from "react";
@@ -40,12 +40,12 @@ const ProjectCard = ({
   return (
     <div className="flex flex-col items-center">
       <div className={style} ref={cardRef}>
-        {record.fields.images ? (
+        {record.images ? (
           <Image
-            src={record.fields.images[0].thumbnails.large.url}
+            src={record.images[0].thumbnails.large.url}
             alt=""
-            height={record.fields.images[0].thumbnails.large.height}
-            width={record.fields.images[0].thumbnails.large.width}
+            height={record.images[0].thumbnails.large.height}
+            width={record.images[0].thumbnails.large.width}
             style={{
               width: "35%",
               height: "auto",
