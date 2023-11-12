@@ -59,7 +59,8 @@ resource "google_cloud_run_v2_service" "portfolio" {
         name = "AIRTABLE_TOKEN"
         value_source {
           secret_key_ref {
-            secret = google_secret_manager_secret.airtable_token.name
+            secret  = google_secret_manager_secret.airtable_token.name
+            version = "latest"
           }
         }
       }
@@ -67,7 +68,8 @@ resource "google_cloud_run_v2_service" "portfolio" {
         name = "AIRTABLE_BASE"
         value_source {
           secret_key_ref {
-            secret = google_secret_manager_secret.airtable_base.name
+            secret  = google_secret_manager_secret.airtable_base.name
+            version = "latest"
           }
         }
       }
@@ -102,6 +104,12 @@ resource "google_secret_manager_secret_version" "airtable_token" {
   secret_data = var.airtable_token
 }
 
+resource "google_secret_manager_secret_iam_member" "airtable_base" {
+  member    = google_service_account.cloud_run.member
+  secret_id = google_secret_manager_secret.airtable_token.secret_id
+  role      = "roles/secretmanager.secretAccessor"
+}
+
 resource "google_secret_manager_secret" "airtable_base" {
   secret_id = "airtable_base"
 
@@ -118,4 +126,10 @@ resource "google_secret_manager_secret_version" "airtable_base" {
   secret = google_secret_manager_secret.airtable_base.id
 
   secret_data = var.airtable_base
+}
+
+resource "google_secret_manager_secret_iam_member" "airtable_base" {
+  member    = google_service_account.cloud_run.member
+  secret_id = google_secret_manager_secret.airtable_base.secret_id
+  role      = "roles/secretmanager.secretAccessor"
 }
