@@ -104,7 +104,7 @@ resource "google_secret_manager_secret_version" "airtable_token" {
   secret_data = var.airtable_token
 }
 
-resource "google_secret_manager_secret_iam_member" "airtable_base" {
+resource "google_secret_manager_secret_iam_member" "airtable_token" {
   member    = google_service_account.cloud_run.member
   secret_id = google_secret_manager_secret.airtable_token.secret_id
   role      = "roles/secretmanager.secretAccessor"
