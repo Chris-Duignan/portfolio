@@ -22,16 +22,18 @@ export default function Home() {
   const activeLink = useObserver(sectionRefs);
 
   return (
-    <div className="md:grid md:grid-cols-3 md:gap-4 h-screen">
-      <aside className="border-b-2 md:col-span-1 md:grid md:grid-rows-3 md:border-r-2 md:border-b-0 md:pl-48 md:pt-44 md:pb-44 md:pr-10">
-        <div>
+    <div className="lg:grid lg:grid-cols-3 lg:gap-4 h-screen">
+      <aside className="border-b-2 lg:col-span-1 lg:grid lg:grid-rows-3 lg:border-r-2 lg:border-b-0 lg:pl-48 lg:pt-44 lg:pb-44 lg:pr-10">
+        <div className="lg:flex lg:flex-col lg:h-fill lg:justify-between">
+          <div>
           <PrimaryTitle>Chris Duignan</PrimaryTitle>
-          <SecondaryTitle style={"text-left"}>
-            Full Stack Software Engineer @ Northcoders
+          <SecondaryTitle style={"text-left invisible lg:visible"}>
+            Full Stack Software Engineer
           </SecondaryTitle>
+          </div>
         </div>
         <NavBar section={activeLink} />
-        <div className="flex items-end">
+        <div className="flex items-end invisible h-0 w-0 lg:visible lg:w-[70px] lg:h-[75px]">
           <a href="https://github.com/Chris-Duignan" target="_blank">
             <Image
               src={githubIcon}
@@ -58,7 +60,7 @@ export default function Home() {
       </aside>
       <main
         id="scrollArea"
-        className="md:col-span-2 text-justify overflow-y-auto md:py-44 md:pr-48 md:pl-16 scroll-smooth scroll-pt-44"
+        className="lg:col-span-2 text-justify overflow-y-auto lg:py-44 lg:pr-48 lg:pl-16 scroll-smooth scroll-pt-44"
       >
         <AboutMe ref={sectionRefs.bio} />
         <TechStack ref={sectionRefs.tech} />

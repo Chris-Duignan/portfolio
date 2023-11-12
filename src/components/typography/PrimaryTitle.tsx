@@ -4,7 +4,7 @@ interface Props {
 
 const PrimaryTitle = ({ children }: Props) => {
     return (
-        <h1 className="text-3xl font-bold">
+        <h1 className="text-3xl font-bold text-center lg:text-justify pb-2">
             {children}
         </h1>
     )
