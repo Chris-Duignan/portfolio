@@ -11,14 +11,6 @@ const Projects = React.forwardRef<HTMLDivElement>((props, ref) => {
   );
 
   useEffect(() => {
-    const getTest = async () => {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_PROJECTS_URL}/api/test`)
-
-      const body = await res.json()
-
-      console.log(body)
-    }
-    getTest()
     setCurrentProjects(projects.slice(0, page * 2));
   }, [projects, page]);
 
@@ -39,7 +31,7 @@ const Projects = React.forwardRef<HTMLDivElement>((props, ref) => {
                 record={data}
                 isLast={index === currentProjects.length - 1}
                 loadMoreProjects={loadMoreProjects}
-                key={data.id}
+                key={data.name}
               />
           );
         })}

@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import type { Record } from "@/interfaces/types";
+import type { Fields } from "@/interfaces/types";
 
-async function getProjects(): Promise<Record[]> {
+async function getProjects(): Promise<Fields[]> {
   if (!process.env.NEXT_PUBLIC_PROJECTS_URL) throw new Error('Failed to fetch projects')
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_PROJECTS_URL}/api/project`, {cache: 'no-store'})
+  const res = await fetch(`${process.env.NEXT_PUBLIC_PROJECTS_URL}/api/project`, {next: {revalidate: 0}})
  
   if (!res.ok) {
     throw new Error('Failed to fetch data')
@@ -12,13 +12,13 @@ async function getProjects(): Promise<Record[]> {
  
   const data = await res.json()
 
-  if (!Array.isArray(data.records)) throw new Error('Failed to fetch projects')
+  if (!Array.isArray(data)) throw new Error('Failed to fetch projects')
 
-  return data.records
+  return data
 }
 
 const useProjects = () => {
-  const [projects, setProjects] = useState<Record[]>([]);
+  const [projects, setProjects] = useState<Fields[]>([]);
   const [err, setErr] = useState(null);
 
 

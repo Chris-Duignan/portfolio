@@ -1,4 +1,4 @@
-import type { Record } from "@/interfaces/types";
+import type { Fields, Record } from "@/interfaces/types";
 import Image from "next/image";
 import React from "react";
 import { useEffect, useRef } from "react";
@@ -6,7 +6,7 @@ import githubIcon from "../../public/github-mark-white.svg";
 import TertiaryTitle from "./typography/TertiaryTitle";
 
 interface ProjectCardProps {
-  record: Record;
+  record: Fields;
   isLast: boolean;
   loadMoreProjects: () => void;
 }
@@ -40,7 +40,7 @@ const ProjectCard = ({
   return (
     <div className="flex flex-col items-center">
       <div className={style} ref={cardRef}>
-        {/* {record.fields.images ? (
+        {record.fields.images ? (
           <Image
             src={record.fields.images[0].thumbnails.large.url}
             alt=""
@@ -53,25 +53,25 @@ const ProjectCard = ({
             placeholder="blur"
             blurDataURL="/1x1-b92e297f.png"
           />
-        ) : null} */}
+        ) : null}
         <div className="px-5 flex flex-col">
-          <TertiaryTitle style="pb-5">{record.fields.name}</TertiaryTitle>
-          <p>{record.fields.description}</p>
+          <TertiaryTitle style="pb-5">{record.name}</TertiaryTitle>
+          <p>{record.description}</p>
           <div className="flex justify-between items-end grow">
-            {record.fields.hosted ? (
+            {record.hosted ? (
               <p className="text-left">
                 See it at:{" "}
                 <a
                   className="underline"
-                  href={record.fields.hosted}
+                  href={record.hosted}
                   target="_blank"
                 >
-                  {record.fields.hosted}
+                  {record.hosted}
                 </a>{" "}
               </p>
             ) : null}
-            {record.fields.github ? (
-              <a href={record.fields.github} target="_blank">
+            {record.github ? (
+              <a href={record.github} target="_blank">
                 <Image
                   src={githubIcon}
                   alt=""
