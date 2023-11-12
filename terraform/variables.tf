@@ -13,11 +13,11 @@ variable "tag" {
 }
 
 variable "airtable_token" {
-  type = string
+  type      = string
   sensitive = true
 }
 
 variable "airtable_base" {
-  type = string
+  type      = string
   sensitive = true
 }
