@@ -11,3 +11,13 @@ variable "region" {
 variable "tag" {
   type = string
 }
+
+variable "airtable_token" {
+  type = string
+  sensitive = true
+}
+
+variable "airtable_base" {
+  type = string
+  sensitive = true
+}

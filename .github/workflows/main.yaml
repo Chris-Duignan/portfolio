@@ -71,6 +71,8 @@ jobs:
     needs: [lint, build]
     env:
       TF_VAR_tag: ${{ github.sha }}
+      TF_VAR_airtable_token: ${{ secrets.AIRTABLE_TOKEN }}
+      TF_VAR_airtable_base: ${{ secrets.AIRTABLE_BASE }}
     defaults:
       run:
         working-directory: ./terraform

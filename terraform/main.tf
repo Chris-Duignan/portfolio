@@ -26,7 +26,8 @@ resource "google_project_service" "project" {
       "cloudresourcemanager.googleapis.com",
       "iam.googleapis.com",
       "iamcredentials.googleapis.com",
-      "sts.googleapis.com"
+      "sts.googleapis.com",
+      "secretmanager.googleapis.com"
     ]
   )
 
@@ -63,4 +64,40 @@ resource "google_cloud_run_v2_service" "portfolio" {
 
 resource "google_service_account" "cloud_run" {
   account_id = "portfolio-cloud-run"
+}
+
+resource "google_secret_manager_secret" "airtable_token" {
+  secret_id = "airtable_token"
+
+  replication {
+    user_managed {
+      replicas {
+        location = var.region
+      }
+    }
+  }
+}
+
+resource "google_secret_manager_secret_version" "airtable_token" {
+  secret = google_secret_manager_secret.airtable_token.id
+
+  secret_data = var.airtable_token
+}
+
+resource "google_secret_manager_secret" "airtable_base" {
+  secret_id = "airtable_base"
+
+  replication {
+    user_managed {
+      replicas {
+        location = var.region
+      }
+    }
+  }
+}
+
+resource "google_secret_manager_secret_version" "airtable_base" {
+  secret = google_secret_manager_secret.airtable_base.id
+
+  secret_data = var.airtable_base
 }
