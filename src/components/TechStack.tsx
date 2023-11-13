@@ -23,7 +23,7 @@ const TechStack = React.forwardRef<HTMLDivElement>((props, ref) => {
     CICD: ["Github Actions", "Husky", "ESLint", "Serverless", "Docker"],
   };
 
-  const style = 'flex items-center w-full py-5'
+  const style = 'flex flex-col lg:flex-row justify-center items-center w-full py-5'
 
   return (
     <div id="tech" className="border-b-2" ref={ref}>
@@ -32,8 +32,8 @@ const TechStack = React.forwardRef<HTMLDivElement>((props, ref) => {
         return (
           <div key={title} className="flex flex-col items-center">
             <div className={`${style}`}>
-              <TertiaryTitle style={"inline-block w-3/12"}>{formatTitle(title)}</TertiaryTitle>
-              <div className="flex items-center flex-wrap w-9/12">
+              <TertiaryTitle style={"inline-block w-full text-center lg:w-3/12"}>{formatTitle(title)}</TertiaryTitle>
+              <div className="flex items-center justify-center flex-wrap w-full lg:w-9/12">
                 {tech[title].map((item) => {
                   return <Tag key={item}>{item}</Tag>;
                 })}
