@@ -27,13 +27,13 @@ export default function Home() {
         <div className="lg:flex lg:flex-col lg:h-fill lg:justify-between">
           <div>
           <PrimaryTitle>Chris Duignan</PrimaryTitle>
-          <SecondaryTitle style={"text-left invisible lg:visible"}>
+          <SecondaryTitle style={"text-left hidden lg:block"}>
             Full Stack Software Engineer
           </SecondaryTitle>
           </div>
         </div>
         <NavBar section={activeLink} />
-        <div className="flex items-end invisible h-0 w-0 lg:visible lg:w-[70px] lg:h-[75px]">
+        <div className="items-end hidden h-0 w-0 lg:flex lg:w-[70px] lg:h-[75px]">
           <a href="https://github.com/Chris-Duignan" target="_blank">
             <Image
               src={githubIcon}
