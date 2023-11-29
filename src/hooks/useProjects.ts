@@ -24,9 +24,11 @@ async function getProjects(): Promise<Fields[]> {
 const useProjects = () => {
   const [projects, setProjects] = useState<Fields[]>([]);
   const [err, setErr] = useState(null);
+  const [loading, setLoading] = useState(true)
 
 
   useEffect(() => {
+    setLoading(true)
     setErr(null);
     getProjects()
       .then((projects) => {
@@ -34,10 +36,13 @@ const useProjects = () => {
       })
       .catch((err) => {
         setErr(err.message);
-      });
+      })
+      .finally(() => {
+        setLoading(false)
+      })
   }, []);
 
-  return { projects, err };
+  return { projects, err, loading };
 };
 
 export default useProjects;

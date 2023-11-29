@@ -2,40 +2,25 @@ import React, { Suspense, useEffect, useState } from "react";
 import useProjects from "@/hooks/useProjects";
 import ProjectCard from "./ProjectCard";
 import SecondaryTitle from "./typography/SecondaryTitle";
+import Loading from "./Loading";
 
 const Projects = React.forwardRef<HTMLDivElement>((props, ref) => {
-  const { projects, err } = useProjects();
-  const [page, setPage] = useState(1);
-  const [currentProjects, setCurrentProjects] = useState(
-    projects.slice(0, page * 2)
-  );
-
-  useEffect(() => {
-    setCurrentProjects(projects.slice(0, page * 2));
-  }, [projects, page]);
-
-  const loadMoreProjects = () => {
-    setPage((prev) => {
-      return prev + 1;
-    });
-  };
+  const { projects, err, loading } = useProjects();
 
   return (
     <div id="projects" className="border-b-2" ref={ref}>
       <SecondaryTitle style={'text-center pt-10'}>Projects</SecondaryTitle>
+      {loading ? <Loading/> : null}
       {err ? <div>Projects not found. Try again later</div> : null}
-      <Suspense>
-        {currentProjects.map((data, index) => {
+        {projects.map((data, index) => {
           return (
               <ProjectCard
                 record={data}
-                isLast={index === currentProjects.length - 1}
-                loadMoreProjects={loadMoreProjects}
+                isLast={index === projects.length - 1}
                 key={data.name}
               />
           );
         })}
-      </Suspense>
     </div>
   );
 });

@@ -1,45 +1,25 @@
 import type { Fields } from "@/interfaces/types";
 import Image from "next/image";
 import React from "react";
-import { useEffect, useRef } from "react";
 import githubIcon from "../../public/github-mark-white.svg";
 import TertiaryTitle from "./typography/TertiaryTitle";
 
 interface ProjectCardProps {
   record: Fields;
   isLast: boolean;
-  loadMoreProjects: () => void;
 }
 
 const ProjectCard = ({
   record,
   isLast,
-  loadMoreProjects,
 }: ProjectCardProps) => {
-  const cardRef = React.createRef<HTMLDivElement>();
-  const loadMoreTriggered = useRef(false);
+
 
   const style = `card py-10 w-full flex`;
 
-  useEffect(() => {
-    if (!cardRef.current) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (isLast && entry.isIntersecting && !loadMoreTriggered.current) {
-          loadMoreTriggered.current = true;
-          loadMoreProjects();
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 1 }
-    );
-
-    observer.observe(cardRef.current);
-  }, [isLast, cardRef, loadMoreProjects]);
-
   return (
     <div className="flex flex-col items-center">
-      <div className={style} ref={cardRef}>
+      <div className={style}>
         {/* {record.images ? (
           <Image
             src={record.images[0].thumbnails.large.url}
@@ -58,18 +38,16 @@ const ProjectCard = ({
           <TertiaryTitle style="pb-5">{record.name}</TertiaryTitle>
           <p>{record.description}</p>
           <div className="flex justify-between items-end grow">
-            {record.hosted ? (
-              <p className="text-left">
+              <p className={`text-left ${!record.hosted ? 'invisible' : ''}`}>
                 See it at:{" "}
                 <a
                   className="underline"
-                  href={record.hosted}
+                  href={record.hosted ?? ''}
                   target="_blank"
                 >
-                  {record.hosted}
+                  {record.hosted ?? ''}
                 </a>{" "}
               </p>
-            ) : null}
             {record.github ? (
               <a href={record.github} target="_blank">
                 <Image
