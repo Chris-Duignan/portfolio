@@ -34,53 +34,53 @@ resource "google_project_service" "project" {
   service = each.key
 }
 
-resource "google_artifact_registry_repository" "portfolio_repo" {
-  repository_id = "portfolio-repo"
-  location      = var.region
-  format        = "DOCKER"
-}
+# resource "google_artifact_registry_repository" "portfolio_repo" {
+#   repository_id = "portfolio-repo"
+#   location      = var.region
+#   format        = "DOCKER"
+# }
 
-resource "google_cloud_run_v2_service" "portfolio" {
-  name     = "portfolio"
-  location = var.region
+# resource "google_cloud_run_v2_service" "portfolio" {
+#   name     = "portfolio"
+#   location = var.region
 
-  template {
-    service_account = google_service_account.cloud_run.email
+#   template {
+#     service_account = google_service_account.cloud_run.email
 
-    containers {
-      image = "europe-west1-docker.pkg.dev/portfolio-402319/portfolio-repo/portfolio:${var.tag}"
-      resources {
-        limits = {
-          memory = "512Mi"
-          cpu    = "1"
-        }
-      }
-      env {
-        name = "AIRTABLE_TOKEN"
-        value_source {
-          secret_key_ref {
-            secret  = google_secret_manager_secret.airtable_token.name
-            version = "latest"
-          }
-        }
-      }
-      env {
-        name = "AIRTABLE_BASE"
-        value_source {
-          secret_key_ref {
-            secret  = google_secret_manager_secret.airtable_base.name
-            version = "latest"
-          }
-        }
-      }
-    }
-    scaling {
-      max_instance_count = 2
-    }
+#     containers {
+#       image = "europe-west1-docker.pkg.dev/portfolio-402319/portfolio-repo/portfolio:${var.tag}"
+#       resources {
+#         limits = {
+#           memory = "512Mi"
+#           cpu    = "1"
+#         }
+#       }
+#       env {
+#         name = "AIRTABLE_TOKEN"
+#         value_source {
+#           secret_key_ref {
+#             secret  = google_secret_manager_secret.airtable_token.name
+#             version = "latest"
+#           }
+#         }
+#       }
+#       env {
+#         name = "AIRTABLE_BASE"
+#         value_source {
+#           secret_key_ref {
+#             secret  = google_secret_manager_secret.airtable_base.name
+#             version = "latest"
+#           }
+#         }
+#       }
+#     }
+#     scaling {
+#       max_instance_count = 2
+#     }
 
-  }
+#   }
 
-}
+# }
 
 resource "google_service_account" "cloud_run" {
   account_id = "portfolio-cloud-run"
