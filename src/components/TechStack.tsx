@@ -6,7 +6,7 @@ import TertiaryTitle from "./typography/TertiaryTitle";
 
 interface Tech {
   languages: string[];
-  front_end: string[];
+  frameworks: string[];
   back_end: string[];
   data_engineering: string[];
   cloud: string[];
@@ -16,9 +16,9 @@ interface Tech {
 const TechStack = React.forwardRef<HTMLDivElement>((props, ref) => {
   const tech: Tech = {
     languages: ["JavaScript", "TypeScript", "Python"],
-    front_end: ["React", "Vue", "Next.js"],
+    frameworks: ["React", "Vue", "Next.js", "React Native", "Flutter"],
     back_end: ["Express.js", "PSQL"],
-    data_engineering: ["scraPy", "spaCy"],
+    data_engineering: ["Pandas", "scraPy", "spaCy"],
     cloud: ["AWS", "Azure", "Terraform"],
     CICD: ["Github Actions", "Husky", "ESLint", "Serverless", "Docker"],
   };
