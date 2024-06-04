@@ -9,12 +9,7 @@ interface ProjectCardProps {
   isLast: boolean;
 }
 
-const ProjectCard = ({
-  record,
-  isLast,
-}: ProjectCardProps) => {
-
-
+const ProjectCard = ({ record, isLast }: ProjectCardProps) => {
   const style = `card py-10 w-full flex`;
 
   return (
@@ -36,18 +31,18 @@ const ProjectCard = ({
         ) : null} */}
         <div className="px-5 flex flex-col">
           <TertiaryTitle style="pb-5">{record.name}</TertiaryTitle>
-          <p>{record.description}</p>
+          <p className="text-lg">{record.description}</p>
           <div className="flex justify-between items-end grow">
-              <p className={`text-left ${!record.hosted ? 'invisible' : ''}`}>
-                See it at:{" "}
-                <a
-                  className="underline"
-                  href={record.hosted ?? ''}
-                  target="_blank"
-                >
-                  {record.hosted ?? ''}
-                </a>{" "}
-              </p>
+            <p className={`text-left ${!record.hosted ? "invisible" : ""}`}>
+              See it at:{" "}
+              <a
+                className="underline"
+                href={record.hosted ?? ""}
+                target="_blank"
+              >
+                {record.hosted ?? ""}
+              </a>{" "}
+            </p>
             {record.github ? (
               <a href={record.github} target="_blank">
                 <Image
