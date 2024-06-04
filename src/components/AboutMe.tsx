@@ -16,8 +16,9 @@ const AboutMe = React.forwardRef<HTMLDivElement>((props, ref) => {
         <br />
         <br />
         <br />
-        Throughout my career so far, I've had the chance to work on a variety of
-        projects with all sorts of different tech. Some highlights include:
+        Throughout my career so far, I&apos;ve had the chance to work on a
+        variety of projects with all sorts of different tech. Some highlights
+        include:
         <ul>
           <br />
           <li>
