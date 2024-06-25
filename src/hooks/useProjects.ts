@@ -19,9 +19,7 @@ async function getProjects(): Promise<Fields[]> {
   if (!Array.isArray(data)) throw new Error("Failed to fetch projects");
 
   return data.sort((a, b) => {
-    if (a.name < b.name) return -1;
-    if (a.name > b.name) return 1;
-    return 0;
+    return parseInt(b.date) - parseInt(a.date);
   });
 }
 
